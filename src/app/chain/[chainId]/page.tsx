@@ -15,7 +15,7 @@ export default function ChainPage({ params }: { params: { chainId: string } }) {
         .getIndebtedUsers(params.chainId)
         .then((users) => {
           console.log(users);
-          setIndebtedUsers(users);
+          setIndebtedUsers(users.filter((user: any) => parseInt(user) !== 0));
         })
         .catch((err) => {
           console.error(err);

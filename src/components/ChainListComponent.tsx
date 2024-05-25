@@ -15,10 +15,10 @@ export default function ChainListComponent() {
   }, []);
 
   return (
-    <ul className="grid grid-cols-3 gap-5 overflow-scroll">
-      {chains.map((item: any, index: any) => {
+    <ul className="grid grid-cols-3 gap-5 overflow-y-scroll auto-rows-min no-scrollbar">
+      {chains.toReversed().map((item: any, index: any) => {
         const chain = {
-          chainId: index,
+          chainId: item.chainId.toString(),
           owner: item.owner,
           validUsers: item.validUsers.toString(),
           amountToPay: item.amountToPay.toString(),

@@ -62,7 +62,7 @@ export default function PayComponent() {
           />
         </div>
         <button
-          type="submit"
+          type="button"
           onClick={pay}
           className="text-white self-center bg-fuchsia-500 hover:bg-fuchsia-600 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center"
         >

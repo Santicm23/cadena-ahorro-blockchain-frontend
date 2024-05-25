@@ -29,7 +29,7 @@ export default function ChainItem({ chain, owner }: Props) {
   }
 
   return (
-    <div className="max-w-sm p-6 bg-fuchsia-300 border border-gray-200 rounded-lg shadow flex flex-col gap-3 items-center">
+    <div className="max-w-sm p-6 bg-fuchsia-300 h-min border border-gray-200 rounded-lg shadow flex flex-col gap-3 items-center">
       <h5 className="mb-2 text-2xl font-bold tracking-tight text-fuchsia-800">
         Chain {chain.chainId}
       </h5>

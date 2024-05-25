@@ -32,7 +32,7 @@ export default function MyChainListComponent() {
   }
   return (
     <ul className="grid grid-cols-3 gap-5">
-      {chains.map((item: any, index: any) => {
+      {chains.toReversed().map((item: any, index: any) => {
         const chain = {
           chainId: item.chainId.toString(),
           owner: item.owner,
