@@ -37,7 +37,7 @@ export default function ChainItem({ chain, owner }: Props) {
         <p className="mb-3 text-fuchsia-700">{chain.timeToPay / 60} hrs</p>
       </div>
       <button
-        onClick={() => enterChain(chain.chainId)}
+        onClick={owner ? () => {} : () => enterChain(chain.chainId)}
         className="inline-flex w-min gap-2 items-center px-3 py-2 text-sm font-medium text-center text-white bg-fuchsia-500 rounded-lg hover:bg-fuchsia-600"
       >
         {owner ? (
