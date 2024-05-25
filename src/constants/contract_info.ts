@@ -1,4 +1,4 @@
-export const CONTRACT_ADDRESS = "0xB2013d776cce0cF75AEA5AF3ba4FC3072c4d833f";
+export const CONTRACT_ADDRESS = "0x2bd519ef631d950CF860d2Ba0f94FEa9B56abb6b";
 export const CONTRACT_ABI = [
   {
     "inputs": [
@@ -28,6 +28,11 @@ export const CONTRACT_ABI = [
     ],
     "name": "chains",
     "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "chainId",
+        "type": "uint256"
+      },
       {
         "internalType": "address",
         "name": "owner",
@@ -102,6 +107,25 @@ export const CONTRACT_ABI = [
     "name": "enterChain",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "chainId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getIndebtedUsers",
+    "outputs": [
+      {
+        "internalType": "address[]",
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {

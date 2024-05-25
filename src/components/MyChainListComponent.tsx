@@ -34,7 +34,7 @@ export default function MyChainListComponent() {
     <ul className="grid grid-cols-3 gap-5">
       {chains.map((item: any, index: any) => {
         const chain = {
-          chainId: index,
+          chainId: item.chainId.toString(),
           owner: item.owner,
           validUsers: item.validUsers.toString(),
           amountToPay: item.amountToPay.toString(),

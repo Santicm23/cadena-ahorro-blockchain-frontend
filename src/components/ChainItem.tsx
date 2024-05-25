@@ -1,3 +1,5 @@
+"use client"
+
 import { getWriteContract } from "@/helpers/ethers";
 import React from "react";
 
@@ -21,6 +23,11 @@ export default function ChainItem({ chain, owner }: Props) {
       });
   }
 
+  function chainInfo(chainId: number) {
+    console.log('first')
+    window.location.href = `/chain/${chainId}`;
+  }
+
   return (
     <div className="max-w-sm p-6 bg-fuchsia-300 border border-gray-200 rounded-lg shadow flex flex-col gap-3 items-center">
       <h5 className="mb-2 text-2xl font-bold tracking-tight text-fuchsia-800">
@@ -37,7 +44,7 @@ export default function ChainItem({ chain, owner }: Props) {
         <p className="mb-3 text-fuchsia-700">{chain.timeToPay / 60} hrs</p>
       </div>
       <button
-        onClick={owner ? () => {} : () => enterChain(chain.chainId)}
+        onClick={owner ? () => chainInfo(chain.chainId) : () => enterChain(chain.chainId)}
         className="inline-flex w-min gap-2 items-center px-3 py-2 text-sm font-medium text-center text-white bg-fuchsia-500 rounded-lg hover:bg-fuchsia-600"
       >
         {owner ? (

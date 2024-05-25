@@ -15,7 +15,7 @@ export default function ChainListComponent() {
   }, []);
 
   return (
-    <ul className="grid grid-cols-3 gap-5">
+    <ul className="grid grid-cols-3 gap-5 overflow-scroll">
       {chains.map((item: any, index: any) => {
         const chain = {
           chainId: index,
