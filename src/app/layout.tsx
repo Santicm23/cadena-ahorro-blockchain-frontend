@@ -15,12 +15,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative h-full w-full bg-neutral-900">
-        <div className="absolute inset-0 bg-fuchsia-400 bg-[size:20px_20px] opacity-20 blur-[100px]"></div>
+        <div className="absolute -z-10 inset-0 bg-fuchsia-400 bg-[size:20px_20px] opacity-20 blur-[100px]"></div>
         <header className="absolute h-16 top-0 w-screen">
           <div className="flex m-auto w-2/3 h-full text-slate-300 items-center justify-between font-bold">
             <h1 className="text-3xl text-slate-200">Juego de la Cadena</h1>
             <div className="flex items-center space-x-4">
               <Link href={"/"}>Todas las cadenas</Link>
+              <Link href={"/pagar-o-retirar"}>Pagar o retirar</Link>
+              <Link href={"/crear-cadena"}>Crear cadena</Link>
               <Link href={"/mis-cadenas"}>Mis cadenas</Link>
             </div>
           </div>
