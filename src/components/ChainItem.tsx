@@ -1,3 +1,4 @@
+import { getWriteContract } from "@/helpers/ethers";
 import React from "react";
 
 interface Props {
@@ -6,6 +7,20 @@ interface Props {
 }
 
 export default function ChainItem({ chain, owner }: Props) {
+  async function enterChain(chainId: number) {
+    const contract = await getWriteContract();
+    contract
+      .enterChain(chainId)
+      .then((tx) => {
+        console.log(tx);
+        chain.validUsers++;
+      })
+      .catch((err) => {
+        console.error(err);
+        alert(err.message.split('"')[1]);
+      });
+  }
+
   return (
     <div className="max-w-sm p-6 bg-fuchsia-300 border border-gray-200 rounded-lg shadow flex flex-col gap-3 items-center">
       <h5 className="mb-2 text-2xl font-bold tracking-tight text-fuchsia-800">
@@ -21,7 +36,10 @@ export default function ChainItem({ chain, owner }: Props) {
         <p className="mb-3 text-fuchsia-700">Time to pay:</p>
         <p className="mb-3 text-fuchsia-700">{chain.timeToPay / 60} hrs</p>
       </div>
-      <button className="inline-flex w-min gap-2 items-center px-3 py-2 text-sm font-medium text-center text-white bg-fuchsia-500 rounded-lg hover:bg-fuchsia-600">
+      <button
+        onClick={() => enterChain(chain.chainId)}
+        className="inline-flex w-min gap-2 items-center px-3 py-2 text-sm font-medium text-center text-white bg-fuchsia-500 rounded-lg hover:bg-fuchsia-600"
+      >
         {owner ? (
           <>
             <svg
@@ -31,9 +49,9 @@ export default function ChainItem({ chain, owner }: Props) {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               className="lucide lucide-list"
             >
               <line x1="8" x2="21" y1="6" y2="6" />
@@ -56,9 +74,9 @@ export default function ChainItem({ chain, owner }: Props) {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>

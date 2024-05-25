@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { getWriteContract } from '../helpers/ethers';
+import { getWriteContract } from "../helpers/ethers";
 
 export default function CreateChainComponent() {
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,12 +22,15 @@ export default function CreateChainComponent() {
 
     const contract = await getWriteContract();
 
-    const tx = await contract.createChain(
-      amount,
-      daysToStart,
-      daysToPay
-    );
-    console.log(tx);
+    contract
+      .createChain(amount, daysToStart, daysToPay)
+      .then((tx) => {
+        console.log(tx);
+      })
+      .catch((err) => {
+        console.error(err);
+        alert(err.message.split('"')[1]);
+      });
   };
 
   const clear = () => {
